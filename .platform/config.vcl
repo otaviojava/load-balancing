@@ -1,14 +1,14 @@
-backend server1 {
+backend serverA {
     .host = "server1.internal";
 }
-backend server2 {
+backend serverB {
     .host = "server2.internal";
 }
 
 sub vcl_init {
     new bar = directors.round_robin();
-    bar.add_backend(server1);
-    bar.add_backend(server2);
+    bar.add_backend(serverA);
+    bar.add_backend(serverB);
 }
 
 sub vcl_recv {
