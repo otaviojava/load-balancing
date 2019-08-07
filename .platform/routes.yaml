@@ -1,15 +1,20 @@
-  "https://{default}/server1":
+# The routes of the project.
+#
+# Each route describes how an incoming URL is going
+# to be processed by Platform.sh.
+
+"https://{default}/":
   type: upstream
   upstream: "server1:http"
-
-  "https://{default}/server2":
-  type: upstream
-  upstream: "server2:http"
-
- "https://{default}/":
-  type: upstream
-  upstream: "server1:http" 
 
 "https://www.{default}/":
   type: redirect
   to: "https://{default}/"
+
+"https://{default}/server1":
+  type: upstream
+  upstream: "server1:http" 
+  
+"https://{default}/server2":
+  type: upstream
+  upstream: "server2:http"   
