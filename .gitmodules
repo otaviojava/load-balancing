@@ -1,3 +1,6 @@
 [submodule "server1/source"]
 	path = server1/source
 	url = https://github.com/soujava/ping
+[submodule "server2/source"]
+	path = server2/source
+	url = https://github.com/soujava/ping
