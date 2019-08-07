@@ -19,16 +19,3 @@ sub vcl_recv {
   # use to be client.identity in V3
   set req.backend_hint = cdir.backend(req.http.sticky);
 }
-
-sub vcl_deliver {
-  # persist the cookie
-  # we need to use the header vmod as there might be a set-cookie
-  # header on the object already and
-  # we don't want to mess with it
-  if (req.http.sticky) {
-     header.append(resp.http.Set-Cookie,"sticky=bar" +
-
-            req.http.sticky + ";   Expires=" + cookie.format_rfc1123(now, 60m));
-
-   }
-}
