@@ -9,4 +9,12 @@
 
 "https://www.{default}/":
   type: redirect
-  to: "https://{default}/"    
+  to: "https://{default}/"
+
+"https://{default}/a":
+  type: upstream
+  upstream: "server1:http"
+
+"https://www.{default}/a":
+  type: redirect
+  to: "https://{default}/"          
