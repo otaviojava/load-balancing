@@ -1,5 +1,6 @@
 sub vcl_init {
-    new bar = directors.round_robin();
+    new bar = directors.random();
+    bar.add_backend(server1.backend());
     bar.add_backend(server2.backend());
 }
 
