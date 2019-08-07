@@ -1,3 +1,3 @@
-[submodule "server1"]
+[submodule "ping"]
 	path = server1
 	url = https://github.com/soujava/ping
