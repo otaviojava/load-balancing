@@ -14,7 +14,15 @@
 "https://{default}/server1":
   type: upstream
   upstream: "server1:http" 
+
+"https://www.{default}/server1":
+  type: redirect
+  to: "https://{default}/server1"  
   
 "https://{default}/server2":
   type: upstream
-  upstream: "server2:http"   
+  upstream: "server2:http"
+
+"https://www.{default}/server2":
+  type: redirect
+  to: "https://{default}/server2"       
