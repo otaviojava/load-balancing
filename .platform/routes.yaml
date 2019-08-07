@@ -1,4 +1,4 @@
 "https://{default}/server1":
-    id: conference
+    id: server1
     type: upstream
     upstream: "server1:http"
