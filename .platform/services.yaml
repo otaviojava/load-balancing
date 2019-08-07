@@ -1,1 +1,10 @@
 # This file defines services you want available to your application.
+varnish:
+    type: varnish:6.0
+    relationships:
+        server1: 'server1:http'
+        server2: 'server2:http'
+    configuration:
+        vcl: !include
+            type: string
+            path: config.vcl
