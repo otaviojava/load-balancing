@@ -3,7 +3,7 @@ type: "java:8"
 
 disk: 1024
 hooks:
-    build: mvn -DskipTests clean package kumuluzee:repackage
+    build: mvn -DskipTests clean package kumuluzee:repackage -f source/pom.xml
 
 mounts:
     '/app':
@@ -13,5 +13,5 @@ mounts:
 web:
     commands:
         start: |
-           mv target/microprofile.jar app/microprofile.jar
+           mv source/target/microprofile.jar app/microprofile.jar
            java -jar -Xmx512m -Dkumuluzee.server.http.port=$PORT app/microprofile.jar
