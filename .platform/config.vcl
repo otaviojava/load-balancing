@@ -1,17 +1,6 @@
-backend serverA {
-    .host = "server1.internal";
-}
-backend serverB {
-    .host = "server2.internal";
-}
-
-sub vcl_init {
-    new bar = directors.round_robin();
-    bar.add_backend(serverA);
-    bar.add_backend(serverB);
-}
-
 sub vcl_recv {
-    # send all traffic to the bar director:
+    new bar = directors.round_robin();
+    bar.add_backend(server1.backend());
+    bar.add_backend(server2.backend());
     set req.backend_hint = bar.backend();
 }
