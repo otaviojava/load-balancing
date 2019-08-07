@@ -3,12 +3,20 @@
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
-"https://{default}/server1":
+"https://{default}/a":
     id: server1
     type: upstream
     upstream: "server1:http"
 
-"https://{default}/server2":
+"https://{default}/b":
     id: server2
     type: upstream
     upstream: "server2:http"
+
+"https://{default}/":
+  type: upstream
+  upstream: "server2:http"
+
+"https://www.{default}/":
+  type: redirect
+  to: "https://{default}/"    
