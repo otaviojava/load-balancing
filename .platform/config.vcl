@@ -6,8 +6,5 @@ sub vcl_init {
 }
 
 sub vcl_recv {
-    
-    set beresp.ttl = 0s;
-    set beresp.grace = 0s;
     set req.backend_hint = bar.backend();
-}
+ }
