@@ -5,9 +5,10 @@ sub vcl_init {
 }
 
 sub vcl_fetch {
-  set beresp.http.Cache-Control = "max-age=0";
   set beresp.ttl = 0s;
   set beresp.grace = 0s;
+  set beresp.stale_if_error = 0s;
+  set beresp.stale_if_error = 48h;
 }
 
 sub vcl_recv {
