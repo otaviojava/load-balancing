@@ -4,13 +4,6 @@ sub vcl_init {
     bar.add_backend(server2.backend());
 }
 
-sub vcl_fetch {
-  set beresp.ttl = 0s;
-  set beresp.grace = 0s;
-  set beresp.stale_if_error = 0s;
-  set beresp.stale_if_error = 48h;
-}
-
 sub vcl_recv {
     set req.backend_hint = bar.backend();
 }
